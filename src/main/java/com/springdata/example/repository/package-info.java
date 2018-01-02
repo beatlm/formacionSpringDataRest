@@ -5,4 +5,4 @@
  * @author blopezmo
  *
  */
-package demo;
+package com.springdata.example.repository;

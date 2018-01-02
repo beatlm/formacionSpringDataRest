@@ -1,4 +1,4 @@
-package demo;
+package com.springdata.example.repository;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * collectionResourceRel
  * The rel value to use when generating links to the collection resource.
  * */
-@RepositoryRestResource(collectionResourceRel = "users", path = "users")
+@RepositoryRestResource(collectionResourceRel = "usuarios", path = "user")
 	
 	public interface UserRepository extends MongoRepository<User, String> {
 
