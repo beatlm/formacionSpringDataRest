@@ -1,17 +1,25 @@
 package com.springdata.example.entity;
 
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 
 public class Account {
 	@Id private String id;
- 
-@NotNull
+
+	@NotNull
+	private String bankName;
+
+	@NotNull
 	private String accountNumber;
-@NotNull
-	private String balance;
 	
+	@NotNull
+	private String balance;
+
+	private List<Movement> movements;
+
 	public String getId() {
 		return id;
 	}
@@ -30,6 +38,18 @@ public class Account {
 	public void setBalance(String balance) {
 		this.balance = balance;
 	}
+	public List<Movement> getMovements() {
+		return movements;
+	}
+	public void setMovements(List<Movement> movements) {
+		this.movements = movements;
+	}
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
 
-	 
+
 }

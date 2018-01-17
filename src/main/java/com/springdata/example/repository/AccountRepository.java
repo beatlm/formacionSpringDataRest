@@ -1,22 +1,21 @@
 package com.springdata.example.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import com.springdata.example.entity.Account;
 
 
-/*
- * At runtime, Spring Data REST will create an implementation of this interface automatically. 
- * Then it will use the @RepositoryRestResource annotation to direct Spring MVC to create RESTful endpoints at /users.
- * 
- * collectionResourceRel
- * The rel value to use when generating links to the collection resource.
- * */
-@RepositoryRestResource(collectionResourceRel = "accounts", path = "account")
+
+@RepositoryRestResource(collectionResourceRel = "cuentas", path = "account")
+
+public interface AccountRepository extends PagingAndSortingRepository<Account, String> {
+
 	
-	public interface AccountRepository extends MongoRepository<Account, String> {
-
-	//	List<User> findByLastName(@Param("name") String name);
-
-	}
+	@RestResource( rel="buscarPorBanco", path="findByBankName" )
+	public Page<Account> findByBankName(@Param("bankName") String bankName, Pageable p);
+}
