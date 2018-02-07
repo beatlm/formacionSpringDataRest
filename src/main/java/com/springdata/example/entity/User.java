@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
  
+
 public class User {
-	@Id private String id;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
+	@Id 
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private List<Account> accounts;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getFirstName() {
 		return firstName;
