@@ -1,22 +1,22 @@
 package com.springdata.example.entity;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
  
 
 public class User {
 	@Id 
-	private Long id;
+	private String id;
 	private String firstName;
 	private String lastName;
-	private List<Account> accounts;
+
 	
-	public Long getId() {
+ 
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -36,11 +36,5 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public List<Account> getAccounts() {
-		return accounts;
-	}
 
-	public void setAccounts(List<Account> accounts) {
-		this.accounts = accounts;
-	}
 }
