@@ -77,11 +77,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
 
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-browser</artifactId>
+=======
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 		</dependency>
 	</dependencies>
 

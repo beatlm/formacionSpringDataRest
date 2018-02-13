@@ -1,5 +1,6 @@
 package com.springdata.example.demo;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+=======
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
+import java.util.List;
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,20 +24,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+<<<<<<< HEAD
 import com.springdata.example.entity.Account;
 import com.springdata.example.entity.Movement;
 import com.springdata.example.entity.User;
 import com.springdata.example.repository.AccountRepository;
 import com.springdata.example.repository.MovementRepository;
+=======
+import com.springdata.example.entity.User;
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 import com.springdata.example.repository.UserRepository;
+
+import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class DemoApplicationTests {
 	@Autowired UserRepository userRepository;
+<<<<<<< HEAD
 	@Autowired AccountRepository accountRepository;
 	@Autowired MovementRepository movementRepository;
+=======
+
+
+	//Alta y borrado de usuarios
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 	@Test
+<<<<<<< HEAD
 	public void insertData() throws ParseException {
 		List<Account> user1Accounts=new ArrayList<>();
 	
@@ -62,9 +84,27 @@ public class DemoApplicationTests {
 		//	saveTestUser("John", "Smith",null);
 		//	saveTestUser("Pepito", "Grillo", null);
 
+=======
+	public void saveAndDeleteUsers() {
+		User user1=saveTestUser("Usuario1", "Apellido 1");
+		User user2=saveTestUser("Usuario2", "Apellido 2");
+
+		Iterable<User> users=	userRepository.findAll();
+		for(User user:users){
+			log.info(user.getFirstName());
+		}
+		assertEquals(2,userRepository.count());
+
+		userRepository.delete(user2.getId());
+		assertEquals(1,userRepository.count());
+
+		userRepository.delete(user1.getId());
+		assertEquals(0,userRepository.count());
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 
 	}
 
+<<<<<<< HEAD
 
 
 
@@ -95,4 +135,82 @@ public class DemoApplicationTests {
 		movement.setAccountNumber(account);
 		return movementRepository.save(movement);
 	}
+=======
+	//Búsqueda de usuarios findByFirstName, findByLastName
+	@Test
+	public void findByFirstName() {
+		User userSearch=userRepository.findByFirstName("Beatriz");
+		assertNull(userSearch);
+
+		User user1=saveTestUser("Beatriz", "Lopez");
+		User user2=saveTestUser("Adrian", "Lopez");
+
+
+		assertNotNull(userRepository.findByFirstName("Beatriz"));
+		List <User> searchByLastName=userRepository.findByLastName("Lopez");
+
+		assertEquals(2,searchByLastName.size());
+
+		userRepository.delete(user1.getId());
+		userRepository.delete(user2.getId());
+		assertEquals(0,userRepository.count());
+	}
+
+
+	//Busqueda de usuarios por nombre y apellido
+	@Test
+	public void findByFirstNameAndLastName() {
+		User userSearch=userRepository.findByFirstNameAndLastName( "Beatriz","Lopez");
+		assertNull(userSearch);
+
+		User user1=saveTestUser("Beatriz", "Lopez");
+
+		userSearch=userRepository.findByFirstNameAndLastName( "Beatriz","Lopez");
+		assertNotNull(userSearch);
+
+		userRepository.delete(user1.getId());
+		assertEquals(0,userRepository.count());
+	}
+
+
+	//Busqueda de usuarios personalizada findByNameIgnoreCase
+	@Test
+	public void findByFirstNameNoCaseSensitive() {
+		User userSearch=userRepository.findByNameIgnoreCase("BEATRIZ");
+
+		assertNull(userSearch);
+
+		User user1=saveTestUser("Beatriz", "Lopez");
+
+		userSearch=userRepository.findByNameIgnoreCase("BEATRIZ");
+		assertNotNull(userSearch);
+
+		userRepository.delete(user1.getId());
+		assertEquals(0,userRepository.count());
+	}
+
+
+	//Metodos count
+	@Test
+	public void testcountByFirstName() {
+
+		User user1=saveTestUser("Beatriz", "Lopez");
+		assertEquals(new Long(1), userRepository.countByFirstName("Beatriz"));
+		userRepository.delete(user1.getId());
+
+	}
+
+
+
+
+	private User saveTestUser(String firstName, String lastName) {
+		User user= new User();
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		log.info("Insertamos usuario: "+user.getFirstName());
+		return userRepository.save(user);
+	}
+
+
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 }
