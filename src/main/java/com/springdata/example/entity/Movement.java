@@ -1,5 +1,8 @@
 package com.springdata.example.entity;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
@@ -7,18 +10,35 @@ import org.springframework.data.annotation.Id;
 public class Movement {
 	@Id private String id;
 
+
 	@NotNull
-	private String movementId;
-	@NotNull
-	private String balance;
+	private BigDecimal amount;
 	@NotNull
 	private String currency;
+	@NotNull
+	private String accountNumber;
+	@NotNull
+	private Date date;
 
-	public String getMovementId() {
-		return movementId;
+
+ 
+	public BigDecimal getAmount() {
+		return amount;
 	}
-	public void setMovementId(String movementId) {
-		this.movementId = movementId;
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	public String getCurrency() {
 		return currency;
@@ -33,12 +53,7 @@ public class Movement {
 		this.id = id;
 	}
 
-	public String getBalance() {
-		return balance;
-	}
-	public void setBalance(String balance) {
-		this.balance = balance;
-	}
+
 
 
 }

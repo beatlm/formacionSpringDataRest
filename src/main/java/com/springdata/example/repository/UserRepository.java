@@ -13,12 +13,16 @@ import com.springdata.example.entity.User;
 @RepositoryRestResource(collectionResourceRel = "usuarios", path = "user")
 
 public interface UserRepository extends CrudRepository<User, String> {
-	@RestResource( rel="obtenerTodos", path="findAll" )//, exported=false)
+	@RestResource( rel="obtenerTodos", path="findAll" , exported=true)
 	public List<User> findAll();
+	
+	 
 	
 	@RestResource( rel="buscarPorNombre", path="findByName" , exported=true)
 	public User findByFirstName(@Param("firstName") String firstName);
+	
+	@RestResource( rel="buscarPorApellido", path="findByLastName" , exported=true)
+	public User findByLastName(@Param("lastName") String lastName);
 
-	 
-	public User findOne(@Param("id") String id);
+
 }

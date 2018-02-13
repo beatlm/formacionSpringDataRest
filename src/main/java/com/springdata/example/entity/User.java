@@ -2,23 +2,31 @@ package com.springdata.example.entity;
 
 import java.util.List;
 
+import javax.annotation.Generated;
+
 import org.springframework.data.annotation.Id;
  
 
 public class User {
-	@Id 
-	private Long id;
-	private String firstName;
-	private String lastName;
-	private List<Account> accounts;
-	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
+
+	@Id 
+	@Generated(value = { "" })
+	private String id;
+	private String firstName;
+	private String lastName;
+	
+
+	private List<Account> accounts;
+ 
+
+
 
 	public String getFirstName() {
 		return firstName;

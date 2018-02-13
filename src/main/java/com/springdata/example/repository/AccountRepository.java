@@ -15,6 +15,10 @@ import com.springdata.example.entity.Account;
 
 public interface AccountRepository extends PagingAndSortingRepository<Account, String> {
 
+	  
+
+	@RestResource( rel="buscarPorNumeroCuenta", path="findByAccountNumber" )
+	public Account findByAccountNumber(@Param("accountNumber") String accountNumber);
 	
 	@RestResource( rel="buscarPorBanco", path="findByBankName" )
 	public Page<Account> findByBankName(@Param("bankName") String bankName, Pageable p);

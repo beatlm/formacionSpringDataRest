@@ -1,5 +1,6 @@
 package com.springdata.example.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -14,12 +15,19 @@ public class Account {
 
 	@NotNull
 	private String accountNumber;
-	
-	@NotNull
-	private String balance;
 
+	@NotNull
+	private BigDecimal balance = new BigDecimal(0);
+	
 	private List<Movement> movements;
 
+
+	public List<Movement> getMovements() {
+		return movements;
+	}
+	public void setMovements(List<Movement> movements) {
+		this.movements = movements;
+	}
 	public String getId() {
 		return id;
 	}
@@ -32,18 +40,13 @@ public class Account {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public String getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
-	public void setBalance(String balance) {
+	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
 	}
-	public List<Movement> getMovements() {
-		return movements;
-	}
-	public void setMovements(List<Movement> movements) {
-		this.movements = movements;
-	}
+
 	public String getBankName() {
 		return bankName;
 	}
