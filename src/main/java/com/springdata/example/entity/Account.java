@@ -6,21 +6,23 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class Account {
 
 	@Id
 	private String id;
+	
 	@NotNull
 	private String bankName;
 
 	@NotNull
 	private String accountNumber;
 
-
 	@NotNull
 	private BigDecimal balance = new BigDecimal(0);
 
+	@DBRef 
 	private List<Movement> movements;
 
  

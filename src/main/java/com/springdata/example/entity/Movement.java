@@ -12,22 +12,24 @@ public class Movement {
 	@Id
 	private String id;
 
+	@NotNull
+	private BigDecimal amount;
+	
+	@NotNull
+	private String currency;
+	
+	@NotNull
+	private String accountNumber;
+	
+	@NotNull
+	private Date date;
+
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	@NotNull
-	private BigDecimal amount;
-	@NotNull
-	private String currency;
-	@NotNull
-	private String accountNumber;
-	@NotNull
-	private Date date;
-
-
  
 	public BigDecimal getAmount() {
 		return amount;

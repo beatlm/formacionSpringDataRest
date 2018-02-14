@@ -3,12 +3,19 @@ package com.springdata.example.entity;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
  
 
 public class User {
 	@Id
 	private String id;
-
+	private String firstName;
+	private String lastName;	
+	@DBRef 
+	private List<Account> accounts;
+	
+	
+ 
 	public String getId() {
 		return id;
 	}
@@ -16,13 +23,6 @@ public class User {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	private String firstName;
-	private String lastName;
-	
-
-	private List<Account> accounts;
- 
 
 	public String getFirstName() {
 		return firstName;
