@@ -8,9 +8,16 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 
 public class Movement {
-	@Id private String id;
 
+	@Id
+	private String id;
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	@NotNull
 	private BigDecimal amount;
 	@NotNull
@@ -45,12 +52,6 @@ public class Movement {
 	}
 	public void setCurrency(String currency) {
 		this.currency = currency;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 
 
