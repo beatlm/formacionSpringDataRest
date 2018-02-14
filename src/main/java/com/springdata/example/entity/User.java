@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class User {
 	@Id
-	private String id;
+	private String nif;
 	private String firstName;
 	private String lastName;	
 	@DBRef 
@@ -16,12 +16,14 @@ public class User {
 	
 	
  
-	public String getId() {
-		return id;
+
+
+	public String getNif() {
+		return nif;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setNif(String nif) {
+		this.nif = nif;
 	}
 
 	public String getFirstName() {

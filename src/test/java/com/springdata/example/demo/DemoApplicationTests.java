@@ -45,8 +45,8 @@ public class DemoApplicationTests {
 		User userSearch=userRepository.findByFirstName("Beatriz");
 		assertNull(userSearch);
 
-		User user1=saveTestUser("Beatriz", "Lopez",null);
-		User user2=saveTestUser("Adrian", "Lopez",null);
+		User user1=saveTestUser("1234","Beatriz", "Lopez",null);
+		User user2=saveTestUser("5678","Adrian", "Lopez",null);
 
 
 		assertNotNull(userRepository.findByFirstName("Beatriz"));
@@ -67,7 +67,7 @@ public class DemoApplicationTests {
 		User userSearch=userRepository.findByFirstNameAndLastName( "Beatriz","Lopez");
 		assertNull(userSearch);
 
-		User user1=saveTestUser("Beatriz", "Lopez",null);
+		User user1=saveTestUser("1234","Beatriz", "Lopez",null);
 
 		userSearch=userRepository.findByFirstNameAndLastName( "Beatriz","Lopez");
 		assertNotNull(userSearch);
@@ -84,7 +84,7 @@ public class DemoApplicationTests {
 
 		assertNull(userSearch);
 
-		User user1=saveTestUser("Beatriz", "Lopez",null);
+		User user1=saveTestUser("1234","Beatriz", "Lopez",null);
 
 		userSearch=userRepository.findByNameIgnoreCase("BEATRIZ");
 		assertNotNull(userSearch);
@@ -110,9 +110,10 @@ public class DemoApplicationTests {
 	}
 
 /*Metodos privados para guardar usuarios, cuentas y movimientos*/
-	private User saveTestUser(String firstName, String lastName, List<Account> accounts) {
+	private User saveTestUser(String nif,String firstName, String lastName, List<Account> accounts) {
 		User user1= new User();
 		user1.setFirstName(firstName);
+		user1.setNif(nif);
 		user1.setLastName(lastName);
 		if(accounts!=null ) {
 			user1.setAccounts(accounts);
@@ -161,15 +162,15 @@ public class DemoApplicationTests {
 
 			Account account1=saveTestAccount("00490001239874561","SANTANDER",movements,new BigDecimal(820) );
 			user1Accounts.add(account1);
-			saveTestUser("Beatriz", "Lopez",user1Accounts);
+			saveTestUser("1234","Beatriz", "Lopez",user1Accounts);
 			saveTestAccount("10490001239874561","SANTANDER",null,new BigDecimal(456) );
 			saveTestAccount("20490001239874561","SANTANDER",null ,new BigDecimal(788));
 			saveTestAccount("30490001239874561","SANTANDER",null ,new BigDecimal(234));
 			saveTestAccount("40490001239874561","SANTANDER",null,new BigDecimal(1234) );
 
 
-			saveTestUser("John", "Smith",null);
-			saveTestUser("Pepito", "Grillo", null);
+			saveTestUser("5678","John", "Smith",null);
+			saveTestUser("9963","Pepito", "Grillo", null);
 		}
 
 }
