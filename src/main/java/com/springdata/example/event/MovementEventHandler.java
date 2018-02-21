@@ -1,4 +1,4 @@
-package com.springdata.example.repository;
+package com.springdata.example.event;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.springdata.example.entity.Account;
 import com.springdata.example.entity.Movement;
 import com.springdata.example.exception.NonExistentAccountException;
+import com.springdata.example.repository.AccountRepository;
 
 
 @Component

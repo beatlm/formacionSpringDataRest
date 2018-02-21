@@ -1,5 +1,7 @@
 package com.springdata.example.repository;
 
+import java.math.BigDecimal;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -20,5 +22,7 @@ public interface MovementRepository extends PagingAndSortingRepository <Movement
 
 	@RestResource( rel="buscarPorNumeroCuenta", path="findByAccountNumber" )
 	public Page<Movement> findByAccountNumber(@Param("accountNumber") String accountNumber, Pageable p);
+	
+	public Page<Movement> findAllByOrderByAmountAsc(Pageable p);
 
 }

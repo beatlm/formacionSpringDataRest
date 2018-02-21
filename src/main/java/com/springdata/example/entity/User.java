@@ -14,9 +14,6 @@ public class User {
 	@DBRef 
 	private List<Account> accounts;
 	
-	
- 
-
 
 	public String getNif() {
 		return nif;

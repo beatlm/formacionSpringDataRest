@@ -11,21 +11,20 @@ import com.springdata.example.entity.User;
 import com.springdata.example.projection.FullName;
 
 
-@RepositoryRestResource(excerptProjection = FullName.class)
+//@RepositoryRestResource(excerptProjection = FullName.class)
 public interface UserRepository extends CrudRepository<User, String> {
-
-
-	public User findByFirstName(String firstName);
 	
-	public List<User> findByLastName(String lastName);
+	public User findByFirstName(@Param("firstName")String firstName);
+
+	public List<User> findByLastName(@Param("lastName")String lastName);
 
 	public User findByFirstNameAndLastName(@Param("firstName") String firstName,@Param("lastName") String lastName);
-	
-	public Long countByFirstName(String firstname);
-	
-	public String deleteByFirstName(String firstname);
 
- 
+	public Long countByFirstName(@Param("firstName")String firstname);
+
+	public String deleteByFirstName(@Param("firstName")String firstname);
+
+
 	@Query("{'firstName':{$regex:?0,$options:'i'}}")
 	public User findByNameIgnoreCase(@Param("firstName") String firstName);
 }

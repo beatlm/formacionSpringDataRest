@@ -1,4 +1,4 @@
-package com.springdata.example.repository;
+package com.springdata.example.event;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

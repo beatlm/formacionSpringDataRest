@@ -98,13 +98,13 @@ public class DemoApplicationTests {
 	@Test
 	public void testcountByFirstName() {
 
-	/*	saveTestUser("Beatriz", "Lopez", null);
-		saveTestUser("Beatriz", "Moreno", null);
-		saveTestUser("Pepe", "Moreno", null);
+		saveTestUser("1234","Beatriz", "Lopez", null);
+		saveTestUser("2345","Beatriz", "Moreno", null);
+		saveTestUser("4456","Pepe", "Moreno", null);
 		assertEquals(new Long(2), userRepository.countByFirstName("Beatriz"));
 		 
 		userRepository.deleteAll();
-		assertEquals(0L, userRepository.count());*/
+		assertEquals(0L, userRepository.count());
 		assert(true);
 
 	}
@@ -141,7 +141,7 @@ public class DemoApplicationTests {
 	
 	//Alta de usuarios, cuentas y movimientos para pruebas postman
 
-		@Test
+	//	@Test
 		public void insertData() throws ParseException {
 			List<Account> user1Accounts=new ArrayList<>();
 			List <Movement>movements= new ArrayList<>();
