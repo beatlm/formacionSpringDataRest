@@ -28,9 +28,7 @@ public class DemoApplicationTests {
 	@Autowired MovementRepository movementRepository;
 
 
-	
 
-	
 
 	//Búsqueda de usuarios findByFirstName, findByLastName
 	@Test
@@ -38,8 +36,10 @@ public class DemoApplicationTests {
 		User userSearch=userRepository.findByFirstName("Beatriz");
 		assertNull(userSearch);
 
+
 		User user1=saveTestUser("1234","Beatriz", "Lopez",null);
 		User user2=saveTestUser("5678","Adrian", "Lopez",null);
+
 
 
 		assertNotNull(userRepository.findByFirstName("Beatriz"));
@@ -60,7 +60,9 @@ public class DemoApplicationTests {
 		User userSearch=userRepository.findByFirstNameAndLastName( "Beatriz","Lopez");
 		assertNull(userSearch);
 
+
 		User user1=saveTestUser("1234","Beatriz", "Lopez",null);
+
 
 		userSearch=userRepository.findByFirstNameAndLastName( "Beatriz","Lopez");
 		assertNotNull(userSearch);
@@ -77,6 +79,7 @@ public class DemoApplicationTests {
 
 		assertNull(userSearch);
 
+
 		User user1=saveTestUser("1234","Beatriz", "Lopez",null);
 
 		userSearch=userRepository.findByNameIgnoreCase("BEATRIZ");
@@ -89,7 +92,8 @@ public class DemoApplicationTests {
 
 	//Metodos count
 	@Test
-	public void testcountByFirstName() {
+	public void testCountByFirstName() {
+
 
 		saveTestUser("1234","Beatriz", "Lopez", null);
 		saveTestUser("2345","Beatriz", "Moreno", null);
@@ -100,7 +104,9 @@ public class DemoApplicationTests {
 		assertEquals(0L, userRepository.count());
 		assert(true);
 
+
 	}
+
 
 /*Metodos privados para guardar usuarios, cuentas y movimientos*/
 	private User saveTestUser(String nif,String firstName, String lastName, List<Account> accounts) {
@@ -112,9 +118,13 @@ public class DemoApplicationTests {
 			user1.setAccounts(accounts);
 		}
 		return userRepository.save(user1);
+
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 	
 
 }
