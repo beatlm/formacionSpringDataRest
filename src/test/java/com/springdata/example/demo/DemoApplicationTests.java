@@ -121,10 +121,6 @@ public class DemoApplicationTests {
 
 	}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/beatlm/demoSpringData
 	
 
 }
