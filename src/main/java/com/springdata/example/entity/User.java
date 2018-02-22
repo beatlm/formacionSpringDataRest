@@ -1,32 +1,32 @@
 package com.springdata.example.entity;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
- 
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 
 public class User {
-	@Id 
-	private String id;
+	@Id
+	private String nif;
 	private String firstName;
 	private String lastName;
 	private int age;
-
-	
- 
+	@DBRef 
+	private List<Account> accounts;
 
 	public int getAge() {
 		return age;
 	}
-
 	public void setAge(int age) {
-		this.age = age;
+		this.age=age;
+	}
+	public String getNif() {
+		return nif;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+	public void setNif(String nif) {
+		this.nif = nif;
 	}
 
 	public String getFirstName() {
@@ -45,5 +45,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public List<Account> getAccounts() {
+		return accounts;
+	}
 
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
 }
