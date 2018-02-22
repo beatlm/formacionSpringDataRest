@@ -56,23 +56,24 @@ public class InsertDataTest {
 
 		Account account1=saveTestAccount("00490001239874561","SANTANDER",movements,new BigDecimal(820) );
 		user1Accounts.add(account1);
-		saveTestUser("1234","Beatriz", "Lopez",user1Accounts);
+		saveTestUser("1234","Beatriz", "Lopez",30,user1Accounts);
 		saveTestAccount("10490001239874561","SANTANDER",null,new BigDecimal(456) );
 		saveTestAccount("20490001239874561","SANTANDER",null ,new BigDecimal(788));
 		saveTestAccount("30490001239874561","SANTANDER",null ,new BigDecimal(234));
 		saveTestAccount("40490001239874561","SANTANDER",null,new BigDecimal(1234) );
 
 
-		saveTestUser("5678","John", "Smith",null);
-		saveTestUser("9963","Pepito", "Grillo", null);
+		saveTestUser("5678","John", "Smith",20,null);
+		saveTestUser("9963","Pepito", "Grillo",52, null);
 	}
 
 	/*Metodos privados para guardar usuarios, cuentas y movimientos*/
-	private User saveTestUser(String nif,String firstName, String lastName, List<Account> accounts) {
+	private User saveTestUser(String nif,String firstName, String lastName,int age, List<Account> accounts) {
 		User user1= new User();
 		user1.setFirstName(firstName);
 		user1.setNif(nif);
 		user1.setLastName(lastName);
+		user1.setAge(age);
 		if(accounts!=null ) {
 			user1.setAccounts(accounts);
 		}

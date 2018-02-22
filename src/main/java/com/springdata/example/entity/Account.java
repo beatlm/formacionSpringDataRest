@@ -10,15 +10,12 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class Account {
 
+
+	@NotNull
 	@Id
-	private String id;
-	
+	private String accountNumber;
 	@NotNull
 	private String bankName;
-
-	@NotNull
-	private String accountNumber;
-
 	@NotNull
 	private BigDecimal balance = new BigDecimal(0);
 
@@ -26,12 +23,7 @@ public class Account {
 	private List<Movement> movements;
 
  
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	public List<Movement> getMovements() {
 		return movements;
 	}

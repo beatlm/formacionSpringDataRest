@@ -1,6 +1,6 @@
 package com.springdata.example.exception;
 
-public class NonExistentAccountException extends Exception {
+public class NonExistentAccountException extends RuntimeException {
 
 	/**
 	 * 

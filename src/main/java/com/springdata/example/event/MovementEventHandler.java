@@ -22,7 +22,9 @@ public class MovementEventHandler {
 	@Autowired AccountRepository accountRepository;
 
 	@HandleBeforeCreate  public void handleBeforeCreate(Movement movement) throws NonExistentAccountException {
+		
 		Account account=accountRepository.findByAccountNumber(movement.getAccountNumber());
+		
 		if(account==null) {
 			throw new NonExistentAccountException("La cuenta del movimiento no existe.");
 		}else {

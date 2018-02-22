@@ -11,13 +11,13 @@ import com.springdata.example.entity.User;
 import com.springdata.example.projection.FullName;
 
 
-//@RepositoryRestResource(excerptProjection = FullName.class)
+@RepositoryRestResource(excerptProjection = FullName.class)
 public interface UserRepository extends CrudRepository<User, String> {
 	
 	public User findByFirstName(@Param("firstName")String firstName);
 
 	public List<User> findByLastName(@Param("lastName")String lastName);
-
+	
 	public User findByFirstNameAndLastName(@Param("firstName") String firstName,@Param("lastName") String lastName);
 
 	public Long countByFirstName(@Param("firstName")String firstname);

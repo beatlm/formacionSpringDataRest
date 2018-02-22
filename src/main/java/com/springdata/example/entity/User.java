@@ -4,17 +4,23 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
- 
+
 
 public class User {
 	@Id
 	private String nif;
 	private String firstName;
-	private String lastName;	
+	private String lastName;
+	private int age;
 	@DBRef 
 	private List<Account> accounts;
-	
 
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age=age;
+	}
 	public String getNif() {
 		return nif;
 	}

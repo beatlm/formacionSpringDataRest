@@ -12,6 +12,11 @@ import com.springdata.example.entity.User;
 public interface FullName{
 	@Value("#{target.firstName} #{target.lastName}")
 	String getFullName();
+	
+	@Value("#{2018-target.age}")
+	String getBirthYear();
+	
+	String getAge();
 
 }
 
