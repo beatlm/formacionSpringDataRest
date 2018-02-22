@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -15,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.springdata.example.entity.Account;
-import com.springdata.example.entity.Movement;
 import com.springdata.example.entity.User;
 import com.springdata.example.repository.AccountRepository;
 import com.springdata.example.repository.MovementRepository;
@@ -117,23 +114,7 @@ public class DemoApplicationTests {
 		return userRepository.save(user1);
 	}
 
-	private Account saveTestAccount(String accountNumber,  String bankName, List<Movement>movements,BigDecimal balance) {
-		Account account= new Account();
-		account.setAccountNumber(accountNumber);
-		account.setBankName(bankName);
-		account.setBalance(balance);
-		account.setMovements(movements);
-		return accountRepository.save(account);
-	}
 
-	private Movement saveTestMovement(BigDecimal amount, String currency, String account, Date date) {
-		Movement movement= new Movement();
-		movement.setAmount(amount);
-		movement.setDate(date);
-		movement.setCurrency("EUR");
-		movement.setAccountNumber(account);
-		return movementRepository.save(movement);
-	}
 	
 
 }
