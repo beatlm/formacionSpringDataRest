@@ -1,15 +1,13 @@
-package com.springdata.example.projection;
+package com.springdata.example.entity;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.core.config.Projection;
 
-import com.springdata.example.entity.User;
 
 
+@Projection (name = "userInfo", types = {User.class})
 
-@Projection (name = "virtual", types = {User.class})
-
-public interface FullName{
+public interface UserInfo{
 	@Value("#{target.firstName} #{target.lastName}")
 	String getFullName();
 	
